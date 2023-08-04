@@ -1,0 +1,24 @@
+type Query {
+	jobs: [Job]
+}
+type Company {
+	id: ID!
+	name: String!
+	description: String!
+}
+type Job {
+	"""
+	Represents a job ad posted to our job board
+	"""
+	id: ID! # Exclamation means needed in response
+	"""
+	The __date__ when the job was published, in ISO-801 format. E.g `2022-12-31`.
+	"""
+	date: String!
+	title: String!
+	company: Company!
+	description: String
+}
+
+# 5 data types... Int, Float, String, Boolean, ID.
+# Data like dates should be returned as strings
