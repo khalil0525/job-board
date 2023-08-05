@@ -3,9 +3,11 @@ type Query {
 	job(id: ID!): Job
 	company(id: ID!): Company
 }
-
+# Mutations allow you to edit/insert data into the database
 type Mutation {
-	createJob(input: CreateJobInput): Job
+	createJob(input: CreateJobInput!): Job
+	deleteJob(id: ID!): Job
+	updateJob(input: UpdateJobInput!): Job
 }
 type Company {
 	id: ID!
@@ -32,5 +34,10 @@ input CreateJobInput {
 	description: String
 }
 
+input UpdateJobInput {
+	id: ID!
+	title: String
+	description: String
+}
 # 5 data types... Int, Float, String, Boolean, ID.
 # Data like dates should be returned as strings
